@@ -12,11 +12,7 @@ class UsersController extends Controller
 {
     public function get(Request $request): Response
     {
-        return (new Success([
-            ['id' => 1, 'name' => 'user name'],
-            ['id' => 2, 'name' => 'user name 2'],
-            ['id' => 3, 'name' => 'user name 3'],
-        ]))
+        return (new Success(User::query()->get()->all()))
             ->toResponse($request);
     }
 }
